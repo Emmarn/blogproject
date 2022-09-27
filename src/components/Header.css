@@ -1,0 +1,56 @@
+.header{
+    width: 100%;
+    height: 150px;
+    background-color: black;
+    
+}
+
+.blogname{
+    display: flex;
+    color: wheat;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    
+
+}
+
+.kategorieBlock{
+    display: flex;
+    justify-content: space-around;
+    align-items:flex-end;
+    margin-top: 30px;
+}
+
+
+
+.kategorier{
+    
+    background: none;
+    color: wheat;
+    font-size: 15px;
+
+   
+    
+
+}
+
+.search{
+    background: white;
+    color: black;
+    font-size: 15px;
+    border-color: wheat;
+    border-radius: 15px;
+    width: 300px;
+    
+
+}
+
+.loginButton{
+    background: none;
+    color: wheat;
+    font-size: 15px;
+    
+
+}
