@@ -4,15 +4,13 @@ import styles from './Header.css';
 
 
 export const Header = () => {
-        //const navigate=useNavigate();
-
-    const onClickToKategori=()=>{};
-    const onClickSearch=()=>{};
-    const onClickLogin = () => {};
+        
 
   return (
     <div className='header'>
-        <div className='blogname'>B L O G G   N A M N</div>
+        <Link className='blogname' to={'/'}>B L O G G   N A M N</Link>
+
+        <div className='container'>
 
     <div className='kategorieBlock'>
 
@@ -31,15 +29,19 @@ export const Header = () => {
         <Link className='kategorier' to={'/olgasblog'}>
                 Olgas blogg
         </Link>
+        </div>
+
+        <div className='searchLoginBlock'>
 
         <Link className='search' to={''}>
-                Search
+                Search...
         </Link>
 
         <Link className='loginButton' to={'/login'}>
                 Logga in
         </Link>
 
+</div>
 </div>
 
         
