@@ -6,6 +6,7 @@ import {Header} from './components/Header'
 import { Jarisblog } from './components/Jarisblog';
 import { Olgasblog } from './components/Olgasblog';
 import {Homepage} from './components/Homepage'
+import{Loginpage} from './components/Loginpage'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/emmasblog' element={<Emmasblog/>}/>
         <Route path='/jarisblog' element={<Jarisblog/>}/>
         <Route path='/olgasblog' element={<Olgasblog/>}/>
+        <Route path='/login' element={<Loginpage/>}/>
       </Routes>
        
       
