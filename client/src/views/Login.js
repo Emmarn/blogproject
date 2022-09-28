@@ -2,7 +2,10 @@ import React from 'react'
 
 const Login = () => {
     return (
-        <div> ?????Login</div>
+        <div>
+            <input type="text" name="name" placeholder='username' />
+            <input type="text" name="pw" placeholder='password' />
+        </div>
     )
 }
 
