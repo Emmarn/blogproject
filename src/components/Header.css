@@ -30,6 +30,8 @@
     background: none;
     color: wheat;
     font-size: 15px;
+    text-decoration: none;
+
 
    
     
@@ -43,6 +45,11 @@
     border-color: wheat;
     border-radius: 15px;
     width: 300px;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
     
 
 }
@@ -51,6 +58,7 @@
     background: none;
     color: wheat;
     font-size: 15px;
+    text-decoration: none;
     
 
 }

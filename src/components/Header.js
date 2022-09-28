@@ -16,23 +16,29 @@ export const Header = () => {
 
     <div className='kategorieBlock'>
 
-        <button className='kategorier' 
-                onClick={onClickToKategori}>Antons blogg</button>
+        <Link className='kategorier' to={'/antonsblog'}>
+                Antons blogg
+        </Link>
 
-        <button className='kategorier' 
-                onClick={onClickToKategori}>Emmas blogg</button>
+        <Link className='kategorier' to={'/emmasblog'}>
+                Emmas blogg
+        </Link>
 
-        <button className='kategorier' 
-                onClick={onClickToKategori}>Jaris blogg</button>
+        <Link className='kategorier' to={'/jarisblog'}>
+                Jaris blogg
+        </Link>
 
-        <button className='kategorier' 
-                onClick={onClickToKategori}>Olgas blogg</button>
+        <Link className='kategorier' to={'/olgasblog'}>
+                Olgas blogg
+        </Link>
 
-        <button className='search' 
-                onClick={onClickSearch}>Search</button>        
+        <Link className='search' to={''}>
+                Search
+        </Link>
 
-        <button className='loginButton' 
-                onClick={onClickLogin}>Logga in</button>
+        <Link className='loginButton' to={'/login'}>
+                Logga in
+        </Link>
 
 </div>
 
