@@ -1,6 +1,7 @@
 import db from '../db.js';
 import bcrypt from 'bcryptjs';
-import User from '../models/User.js'
+import User from '../models/User.js';
+import jwt from 'jsonwebtoken';
 
 
 export async function register(req, res) {
@@ -58,9 +59,40 @@ export async function register(req, res) {
 
 
 
-export const login = (req, res) => {
-    res.json("auth controlled")
+export async function login(req, res) {
+
+    const query = "SELECT * FROM users WHERE username = $1::TEXT";
+    const values = [req.body.username];
+
+    let findUser = (await db.query(query, values)).rows[0]
+
+    console.log(findUser, "<--------")
+
+    if (!findUser)
+        return res.status(404).json("Användaren finns inte");
+
+    const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
+
+    if (!checkPassword)
+        return res.status(404).json("Fel användarnamn eller lösenord")
+
+    const token = jwt.sign(
+        {
+            exp: Math.floor(Date.now() / 1000) + (60 * 60),
+            id: findUser.id
+        }, "secretKey");
+
+    const { password, ...otherData } = findUser
+
+    res.cookie("token", token,
+        {
+            httpOnly: true
+        }).status(200).json(otherData)
+
+
 }
+
+
 export const logout = (req, res) => {
     res.json("auth controlled")
 }
