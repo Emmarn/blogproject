@@ -19,16 +19,23 @@ export async function register(req, res) {
         return res.status(500).json("Användaren finns redan")
     }
 
-    res.json("11")
+    let salt = bcrypt.genSaltSync(10);
+    let hash = bcrypt.hashSync(req.body.password, salt);
 
+    const newUser = new User(req.body.username, req.body.email, hash)
+
+    const addUserQuery = "INSERT INTO users (username, email, password) VALUES ($1::TEXT, $2::TEXT, $3::TEXT)";
+
+    let response = await db.query(addUserQuery, [newUser.username, newUser.email, newUser.password]);
+
+    res.json(newUser)
     // let resQ = await db.query(query, [req.body.email, req.body.username], (err, data) => {
     //     if (err) return res.json(err)
     //     if (data.length) return res.status(409).json("Användare redan regristerad");
 
     // let user = new User(req.body.username, req.body.email, req.body.password)
 
-    // let salt = bcrypt.genSaltSync(10);
-    // let hash = bcrypt.hashSync(user.password, salt);
+
 
     // const query = "INSERT INTO users(username, password, email) VALUES ($1::TEXT, $2::TEXT, $3::TEXT)";
 
