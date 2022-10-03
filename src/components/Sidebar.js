@@ -10,7 +10,7 @@ import { slide as Menu } from 'react-burger-menu';
         Hem
       </a>
 
-      <a className="menu-item" href="/">
+      <a className="menu-item" href="./Bloggers.js">
         Våra bloggare
       </a>
 
