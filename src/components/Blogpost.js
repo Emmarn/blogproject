@@ -1,5 +1,4 @@
 import styles from './Blogpost.css';
-import { Header } from './Header';
 
 export const Blogpost = () => {
   
@@ -7,7 +6,6 @@ export const Blogpost = () => {
  
  return (   
        <> 
-       <Header/>
        <div className='container'>
         <div className="example-blog-post">
         <img id='author-img' src="https://thumbs.dreamstime.com/z/beautiful-rabbit-glasses-white-background-128974477.jpg"></img>
