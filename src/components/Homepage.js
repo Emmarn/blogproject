@@ -7,7 +7,7 @@ export const Homepage = () => {
         return (
         <>         
      <div className="posts-container">
-        <img id='author-img' src="https://images.photowall.com/products/65869/bunny-rabbit.jpg?h=699"></img>
+        <img id='author-img' src="https://images.photowall.com/products/65869/bunny-rabbit.jpg?h=699" alt='bunny'></img>
          <h2 id="title">Inlägg</h2>
             <div className="blog-post"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -21,7 +21,7 @@ export const Homepage = () => {
           </div>
         </div>
         <div className="posts-container">
-        <img id='author-img' src="https://product-image.juniqe-production.juniqe.com/media/catalog/product/seo-cache/x800/735/12/735-12-101P/Miss-Bunny-Rabbit-Tein-Lucasson-Poster.jpg"></img>
+        <img id='author-img' src="https://product-image.juniqe-production.juniqe.com/media/catalog/product/seo-cache/x800/735/12/735-12-101P/Miss-Bunny-Rabbit-Tein-Lucasson-Poster.jpg" alt='bunns'></img>
         <h2 id="title">Förr i tiden...</h2>
             <div className="blog-post"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -35,7 +35,7 @@ export const Homepage = () => {
           </div>
         </div>
         <div className="posts-container">
-        <img id='author-img' src="https://thumbs.dreamstime.com/z/beautiful-rabbit-glasses-white-background-128974477.jpg"></img>
+        <img id='author-img' src="https://thumbs.dreamstime.com/z/beautiful-rabbit-glasses-white-background-128974477.jpg" alt='bunnys'></img>
         <h2 id="title">Regnet öser ner</h2>
             <div className="blog-post"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
