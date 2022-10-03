@@ -8,6 +8,7 @@ import { Olgasblog } from './components/Olgasblog';
 import {Homepage} from './components/Homepage'
 import{Loginpage} from './components/Loginpage'
 import { Addpost } from './components/Addpost';
+import {Blogpost} from './components/Blogpost';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/olgasblog' element={<Olgasblog/>}/>
         <Route path='/login' element={<Loginpage/>}/>
         <Route path='/addpostform' element={<Addpost/>}/>
+        <Route path="/Blogpost.js" element={<Blogpost/>}/>
       </Routes>
        
       
