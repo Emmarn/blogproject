@@ -10,20 +10,22 @@
     top: 20px;
     margin: 50px;
     padding: 20px;
-    border: 2px solid black;
-    
+    border: 1px rgb(120, 107, 107);
+    box-shadow: 10px 5px 5px rgb(120, 107, 107);
+    border-radius: 10px;
 }
 .container{
     display: flex;
     justify-items: center;
 }
 
-#bloggers-btn{
+.bloggers-btn{
     height: 30px;
     width: 70px;
     margin-bottom: 10px;
     background-color: rgb(212, 199, 182);
     margin: 10px;
+    border-radius: 5px;
 }
 
 #author-img{

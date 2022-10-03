@@ -15,7 +15,7 @@ export const  Bloggers= () => {
                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
                PageMaker including versions of Lorem Ipsum... 
           </p>
-          <button id="bloggers-btn">Inlägg</button>
+          <button className="bloggers-btn">Inlägg</button>
         </div>
         <div className='about-author'>
         <img id="author-img" src="https://images.photowall.com/products/65869/bunny-rabbit.jpg?h=699" alt='bunny'></img>
@@ -29,7 +29,7 @@ export const  Bloggers= () => {
                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
                PageMaker including versions of Lorem Ipsum... 
           </p>
-          <button id="bloggers-btn">Inlägg</button>
+          <button className="bloggers-btn">Inlägg</button>
         </div>
         <div className='about-author'>
         <img id="author-img" src='https://www.popsci.com/uploads/2020/07/20/W2NSRFJ7ZZBT3OMTMN2ZTGREJE-1536x1152.jpg' alt='bunns'></img>
@@ -43,7 +43,7 @@ export const  Bloggers= () => {
                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
                PageMaker including versions of Lorem Ipsum... 
           </p>
-          <button id="bloggers-btn">Inlägg</button>
+          <button className="bloggers-btn">Inlägg</button>
         </div>
         <div className='about-author'>
         <img id="author-img"  src="https://product-image.juniqe-production.juniqe.com/media/catalog/product/seo-cache/x800/735/12/735-12-101P/Miss-Bunny-Rabbit-Tein-Lucasson-Poster.jpg" alt='bunns'></img>
@@ -57,7 +57,7 @@ export const  Bloggers= () => {
                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
                PageMaker including versions of Lorem Ipsum... 
           </p>
-          <button id="bloggers-btn">Inlägg</button>
+          <button className="bloggers-btn">Inlägg</button>
         </div>
         </div>
      );
