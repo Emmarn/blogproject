@@ -7,6 +7,7 @@ import { Jarisblog } from './components/Jarisblog';
 import { Olgasblog } from './components/Olgasblog';
 import {Homepage} from './components/Homepage'
 import{Loginpage} from './components/Loginpage'
+import { Addpost } from './components/Addpost';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/jarisblog' element={<Jarisblog/>}/>
         <Route path='/olgasblog' element={<Olgasblog/>}/>
         <Route path='/login' element={<Loginpage/>}/>
+        <Route path='/addpostform' element={<Addpost/>}/>
       </Routes>
        
       

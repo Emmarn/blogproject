@@ -38,7 +38,7 @@ export const Header = () => {
         </Link>
 
         <Link className='loginButton' to={'/login'}>
-                Logga in
+                Add post
         </Link>
 
 </div>

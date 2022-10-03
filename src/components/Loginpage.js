@@ -3,6 +3,7 @@ import React from "react";
 import { Header } from "./Header";
 import styles from "./Loginpage.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Loginpage = () => {
   // Deklarerar två React States för lyckad och misslyckad inloggning.
@@ -87,10 +88,15 @@ export const Loginpage = () => {
   return (
     <>
       <Header />
-      <div className="form">
+       <div className="form">
         <div className="login-form">
           <div className="title">Logga in som member</div>
-          {isSubmitted ? <div>Användaren är inloggad</div> : renderForm}
+          {isSubmitted ? <div >
+                <div >Användaren är inloggad</div>
+                <Link className="entry-message" 
+                      to={'/addpostform'}>OK</Link>
+                         </div>: renderForm}
+          
         </div>
       </div>
     </>
