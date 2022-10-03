@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Sidebar.css';
 import { slide as Menu } from 'react-burger-menu';
+import { Link } from "react-router-dom";
 
 
  const Sidebar = () => {
@@ -14,9 +15,7 @@ import { slide as Menu } from 'react-burger-menu';
         Våra bloggare
       </a>
 
-      <a className="menu-item" href="./CreateBlogPost.js">
-        Skriv ett inlägg
-      </a>
+      <Link to={'/login'}>Skriv ett inlägg</Link>
 
       <a className="menu-item" href="./Blogpost.js">
         Annat exempel

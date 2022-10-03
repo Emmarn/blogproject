@@ -87,7 +87,7 @@ export const Loginpage = () => {
 
   return (
     <>
-      <Header />
+      
        <div className="form">
         <div className="login-form">
           <div className="title">Logga in som member</div>
