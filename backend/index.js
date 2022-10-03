@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(cookieParser())
+app.use(cookieParser());
 
 app.use("/api/users", userRoute)
 app.use("/api/auth", authRoute)

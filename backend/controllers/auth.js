@@ -1,7 +1,7 @@
 import db from '../db.js';
 import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 
 export async function register(req, res) {
@@ -11,6 +11,7 @@ export async function register(req, res) {
     const query = "SELECT * FROM users WHERE username = $1::TEXT OR email = $2::TEXT";
     const values = [req.body.username, req.body.email]
     // WHERE email = $1::TEXT OR username = $2::TEXT
+
 
     let alreadyUser = await db.query(query, values);
 
@@ -64,31 +65,29 @@ export async function login(req, res) {
     const query = "SELECT * FROM users WHERE username = $1::TEXT";
     const values = [req.body.username];
 
-    let findUser = (await db.query(query, values)).rows[0]
-
-    console.log(findUser, "<--------")
+    let findUser = (await db.query(query, values)).rows[0];
+    const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
 
     if (!findUser)
         return res.status(404).json("Användaren finns inte");
 
-    const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
-
     if (!checkPassword)
-        return res.status(404).json("Fel användarnamn eller lösenord")
+        return res.status(400).json("Fel användarnamn eller lösenord")
 
-    const token = jwt.sign(
-        {
-            exp: Math.floor(Date.now() / 1000) + (60 * 60),
-            id: findUser.id
-        }, "secretKey");
+
+    let userId = findUser.id;
+    const token = jwt.sign({ id: userId }, "Sapppersecret");
 
     const { password, ...otherData } = findUser
 
-    res.cookie("token", token,
-        {
-            httpOnly: true
-        }).status(200).json(otherData)
 
+    return res
+        .cookie('access_token', token)
+        .json({
+            username: otherData.username,
+            isAdmin: otherData.isAdmin,
+            token
+        })
 
 }
 
