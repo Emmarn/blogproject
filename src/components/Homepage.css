@@ -8,11 +8,12 @@
     margin-right: auto;
     margin-top: 100px;
     padding: 30px;
+    box-shadow: 10px 5px 5px rgb(120, 107, 107);
 }
 
 .blog-post{
     text-align: center;
-    border-bottom: 2px solid rgb(49, 30, 30);
+  /*  border-bottom: 2px solid rgb(49, 30, 30); */
 }
 
 #title{
