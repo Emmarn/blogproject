@@ -1,0 +1,17 @@
+.author-container{
+   display: flex;
+   justify-content: space-evenly;
+}
+
+.about-author{
+    border: 3 px solid black;
+    width: 300px;
+    float: right;
+    top: 20px;
+    margin: 50px;
+    
+}
+.container{
+    display: flex;
+    justify-items: center;
+}

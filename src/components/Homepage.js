@@ -1,16 +1,14 @@
 import React from 'react';
-import { Header } from './Header';
 import styles from './Homepage.css';
 import ReadMoreBtn from './ReadMoreBtn';
 
 
 export const Homepage = () => {
         return (
-                <>
-                 <Header/>
-                 <div className="posts-container">
+        <>         
+     <div className="posts-container">
         <img id='author-img' src="https://images.photowall.com/products/65869/bunny-rabbit.jpg?h=699"></img>
-        <h2 id="title">Inlägg</h2>
+         <h2 id="title">Inlägg</h2>
             <div className="blog-post"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -20,8 +18,7 @@ export const Homepage = () => {
                PageMaker including versions of Lorem Ipsum... 
                <p id="author-name-home">Namn på författare</p>  
                 <ReadMoreBtn/>
-               
-            </div>
+          </div>
         </div>
         <div className="posts-container">
         <img id='author-img' src="https://product-image.juniqe-production.juniqe.com/media/catalog/product/seo-cache/x800/735/12/735-12-101P/Miss-Bunny-Rabbit-Tein-Lucasson-Poster.jpg"></img>
@@ -34,10 +31,8 @@ export const Homepage = () => {
                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
                PageMaker including versions of Lorem Ipsum... 
                <p id="author-name">Birgitta Bunny</p>  
-             
-                <ReadMoreBtn/>
-              
-            </div>
+               <ReadMoreBtn/>
+          </div>
         </div>
         <div className="posts-container">
         <img id='author-img' src="https://thumbs.dreamstime.com/z/beautiful-rabbit-glasses-white-background-128974477.jpg"></img>
@@ -49,11 +44,10 @@ export const Homepage = () => {
               remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
                PageMaker including versions of Lorem Ipsum... 
-               <p id="author-name">Torkel</p>  
-               
-                   <ReadMoreBtn/>
-                </div>
+               <p id="author-name">Torkel</p>            
+                <ReadMoreBtn/>
+            </div>
         </div>
-                </>
-        );
+      </>
+    );
 };
