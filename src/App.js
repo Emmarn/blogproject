@@ -14,7 +14,8 @@ import {Blogpost} from './components/Blogpost';
 function App() {
   return (
     <div className="App">
-      
+      <>
+      <Header/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/antonsblog' element={<Antonsblog/>}/>
@@ -25,6 +26,7 @@ function App() {
         <Route path='/addpostform' element={<Addpost/>}/>
         <Route path="/Blogpost.js" element={<Blogpost/>}/>
       </Routes>
+       </>
        
       
       
