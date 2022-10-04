@@ -4,6 +4,10 @@ import ReadMoreBtn from './ReadMoreBtn';
 
 
 export const Homepage = () => {
+  //Content på sidan kommer att visas från toppen.
+  React.useEffect(()=>{
+    window.scrollTo(0,0);
+  }, []);
         return (
         <>         
      <div className="posts-container">

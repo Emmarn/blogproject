@@ -1,4 +1,4 @@
-import {BrowserRouter,  Route, Routes } from 'react-router-dom';
+import {BrowserRouter,  Route, Routes, Router } from 'react-router-dom';
 import './App.css';
 import { Antonsblog } from './components/Antonsblog';
 import { Emmasblog } from './components/Emmasblog';
@@ -10,6 +10,7 @@ import{Loginpage} from './components/Loginpage'
 import { Addpost } from './components/Addpost';
 import {Blogpost} from './components/Blogpost';
 import { Bloggers } from './Views/Bloggers';
+
  
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Blogpost.js" element={<Blogpost/>}/>
         <Route path="/Bloggers.js" element={<Bloggers/>}/>
       </Routes>
+      
        </>
        
       
