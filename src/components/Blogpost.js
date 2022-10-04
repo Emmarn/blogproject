@@ -1,5 +1,6 @@
 import styles from './Blogpost.css';
 
+
 export const Blogpost = () => {
   
 //  Sidan där hela inlägget dyker upp
@@ -40,16 +41,17 @@ export const Blogpost = () => {
 
                <p id="author-name">Harald</p>  
             </div>
+            
         </div>
+        
         </div>
+        
        </>
      );
 }
 
-//ska eventuellt ha en sida om bloggare ist för denna nedan 
-
-/* <div className='about-author'>
-        <img></img>
+/*<div className='about-author'>
+        <img />
           <p>
           <h3>Om författaren</h3>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -60,5 +62,9 @@ export const Blogpost = () => {
                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
                PageMaker including versions of Lorem Ipsum... 
           </p>
-        </div> */   
+        </div>*/
+
+
+
+ 
         
