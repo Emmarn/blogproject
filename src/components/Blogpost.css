@@ -7,14 +7,8 @@
   /*  border: 3px solid rgb(49, 30, 30); */
     margin-left: auto; 
     margin-right: auto;
-<<<<<<< HEAD
-    margin-top: 100px;
-    padding: 30px;
-    background-color: rgb(245, 239, 231);
-=======
     margin-top: 5px;
     padding: 10px;
->>>>>>> 01da0c118358e14c57abbc949ecb8b4b8718890d
 }
 
 .blog-post-text{
@@ -46,13 +40,6 @@
     
 }*/
 .container{
-<<<<<<< HEAD
-    display: flex;
-    justify-items: center;
-    
-}
-=======
     
     
 }
->>>>>>> 01da0c118358e14c57abbc949ecb8b4b8718890d
