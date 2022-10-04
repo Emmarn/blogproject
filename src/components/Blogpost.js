@@ -1,7 +1,12 @@
 import styles from './Blogpost.css';
+import React from 'react';
 
 
 export const Blogpost = () => {
+    //Content på sidan kommer att visas från toppen.
+    React.useEffect(()=>{
+        window.scrollTo(0,0);
+      }, []);
   
 //  Sidan där hela inlägget dyker upp
  
