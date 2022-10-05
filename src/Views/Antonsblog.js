@@ -7,7 +7,6 @@ export const Antonsblog = () => {
     React.useEffect(()=>{
         window.scrollTo(0,0);
       }, []);
-      
         return (
                 <>
                  <div className='antonsblog'>Anton</div>

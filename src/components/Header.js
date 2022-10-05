@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Header.css';
 import Sidebar from './Sidebar';
+import SearchBar from './SearchBar';
 
 
 export const Header = () => {
@@ -35,9 +36,7 @@ export const Header = () => {
 
         <div className='searchLoginBlock'>
 
-        <Link className='search' to={''}>
-                Search...
-        </Link>
+        <SearchBar/>
 
         <Link className='loginButton' to={'/login'}>
                 Add post
