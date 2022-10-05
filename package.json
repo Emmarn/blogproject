@@ -17,6 +17,7 @@
     "react-scripts": "5.0.1",
     "react-show-more-text": "^1.5.2",
     "react-simplemde-editor": "^5.0.2",
+    "recoil": "^0.7.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
