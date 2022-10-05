@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
         Våra bloggare
       </a>
 
-      <Link to={'/login'}>Skriv ett inlägg</Link>
+      <Link to={'/login'}>Logga in</Link>
 
       <a className="menu-item" href="./Blogpost.js">
         Annat exempel

@@ -92,7 +92,7 @@ export const Loginpage = () => {
           <div className="title">Logga in som member</div>
            {isSubmitted ? <div >
            <div >Användaren är inloggad</div>
-           <Link className="entry-message" to={'/addpostform'}>OK</Link>
+           <Link className="entry-message" to={'/'}>OK</Link>
            </div>: renderForm}
           </div>
        </div>
