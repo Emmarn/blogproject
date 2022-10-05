@@ -1,14 +1,14 @@
 import {BrowserRouter,  Route, Routes, Router } from 'react-router-dom';
 import './App.css';
-import { Antonsblog } from './components/Antonsblog';
-import { Emmasblog } from './components/Emmasblog';
+import { Antonsblog } from './Views/Antonsblog';
+import { Emmasblog } from './Views/Emmasblog';
 import {Header} from './components/Header'
-import { Jarisblog } from './components/Jarisblog';
-import { Olgasblog } from './components/Olgasblog';
-import {Homepage} from './components/Homepage'
-import{Loginpage} from './components/Loginpage'
-import { Addpost } from './components/Addpost';
-import {Blogpost} from './components/Blogpost';
+import { Jarisblog } from './Views/Jarisblog';
+import { Olgasblog } from './Views/Olgasblog';
+import {Homepage} from './Views/Homepage'
+import{Loginpage} from './Views/Loginpage'
+import { Addpost } from './Views/Addpost';
+import {Blogpost} from './Views/Blogpost';
 import { Bloggers } from './Views/Bloggers';
 
  

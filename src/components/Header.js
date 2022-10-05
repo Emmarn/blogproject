@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <div className='header'>
         <Sidebar/>
-        <Link className='blogname' to={'/'}>B L O G G   N A M N</Link>
+        <Link className='blogname' to={'/'}>BLOGG</Link>
 
         <div className='container'>
 

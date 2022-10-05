@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Homepage.css';
-import ReadMoreBtn from './ReadMoreBtn';
+import ReadMoreBtn from '../components/ReadMoreBtn';
 
 
 export const Homepage = () => {
