@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import { Header } from "../components/Header";
+import { Header } from "./Header";
 import styles from "./Loginpage.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
