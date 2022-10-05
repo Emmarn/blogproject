@@ -17,21 +17,6 @@ export const Header = () => {
 
     <div className='kategorieBlock'>
 
-        <Link className='kategorier' to={'/antonsblog'}>
-                Antons blogg
-        </Link>
-
-        <Link className='kategorier' to={'/emmasblog'}>
-                Emmas blogg
-        </Link>
-
-        <Link className='kategorier' to={'/jarisblog'}>
-                Jaris blogg
-        </Link>
-
-        <Link className='kategorier' to={'/olgasblog'}>
-                Olgas blogg
-        </Link>
         </div>
 
         <div className='searchLoginBlock'>
