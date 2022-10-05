@@ -7,7 +7,7 @@ import { Jarisblog } from './Views/Jarisblog';
 import { Olgasblog } from './Views/Olgasblog';
 import {Homepage} from './Views/Homepage'
 import{Loginpage} from './Views/Loginpage'
-import { Addpost } from './components/Addpost';
+import { Addpost } from './Views/Addpost';
 import {Blogpost} from './Views/Blogpost';
 import { Bloggers } from './Views/Bloggers';
 

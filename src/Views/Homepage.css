@@ -1,5 +1,4 @@
 .posts-container{
-    background-color: rgb(245, 239, 231);
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -7,14 +6,16 @@
   /*  border: 3px solid rgb(49, 30, 30); */
     margin-left: auto; 
     margin-right: auto;
-    margin-top: 100px;
-    padding: 30px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgb(245, 239, 231);
+    border: 1px rgb(120, 107, 107);
     box-shadow: 10px 5px 5px rgb(120, 107, 107);
+    border-radius: 10px;
 }
 
 .blog-post{
     text-align: center;
-  /*  border-bottom: 2px solid rgb(49, 30, 30); */
 }
 
 #title{
