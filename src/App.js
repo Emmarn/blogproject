@@ -12,11 +12,9 @@ import {Blogpost} from './Views/Blogpost';
 import { Bloggers } from './Views/Bloggers';
 
  
-
 function App() {
   return (
     <div className="App">
-      <>
       <Header/>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
@@ -28,15 +26,8 @@ function App() {
         <Route path='/addpostform' element={<Addpost/>}/>
         <Route path="/Blogpost.js" element={<Blogpost/>}/>
         <Route path="/Bloggers.js" element={<Bloggers/>}/>
-      </Routes>
-      
-       </>
-       
-      
-      
+      </Routes> 
     </div>
-  
-    
   );
 }
 

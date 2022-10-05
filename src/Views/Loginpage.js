@@ -70,15 +70,15 @@ export const Loginpage = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Användarnamn</label>
-          <input type="text" name="uname" required />
-          {renderErrorMessage("uname")}
-        </div>
-        <div className="input-container">
-          <label>Lösenord</label>
-          <input type="password" name="pass" required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div className="button-container">
+           <input type="text" name="uname" required />
+            {renderErrorMessage("uname")}
+               </div>
+               <div className="input-container">
+                <label>Lösenord</label>
+               <input type="password" name="pass" required />
+               {renderErrorMessage("pass")}
+           </div>
+          <div className="button-container">
           <input type="submit" />
         </div>
       </form>
@@ -86,19 +86,15 @@ export const Loginpage = () => {
   );
 
   return (
-    <>
-      
-       <div className="form">
+
+      <div className="form">
         <div className="login-form">
           <div className="title">Logga in som member</div>
-          {isSubmitted ? <div >
-                <div >Användaren är inloggad</div>
-                <Link className="entry-message" 
-                      to={'/addpostform'}>OK</Link>
-                         </div>: renderForm}
-          
-        </div>
-      </div>
-    </>
-  );
+           {isSubmitted ? <div >
+           <div >Användaren är inloggad</div>
+           <Link className="entry-message" to={'/addpostform'}>OK</Link>
+           </div>: renderForm}
+          </div>
+       </div>
+      );
 };
