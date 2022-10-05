@@ -1,21 +1,22 @@
 import express from "express";
 import userRoute from "../backend/routes/users.js";
 import authRoute from "../backend/routes/auth.js";
-import bodyParser from 'body-parser';
 import cors from 'cors';
-import cookieParser from 'cookie-parser'
+import bodyParser from "body-parser";
 
-const app = express()
+const app = express();
+
+app.use(cors())
+
+app.use(express.json());
 
 
-app.use(express.static('public'));
 
-app.use(bodyParser.json());
-app.use(cors());
-app.use(cookieParser());
+
 
 app.use("/api/users", userRoute)
 app.use("/api/auth", authRoute)
+
 
 
 app.listen(8000, () => {

@@ -6,4 +6,21 @@ export default class User {
         this.createDate = new Date();
         this.lastLoggedIn = new Date();
     }
+
+    static convert(row) {
+        return {
+            username: row.username,
+            email: row.email,
+            password: row.password,
+            id: row.id,
+            createDate: row.createDate,
+            lastLoggedIn: row.lastLoggedIn
+        }
+
+    }
 }
+
+
+//kom ihåg
+//module.exports = User;
+

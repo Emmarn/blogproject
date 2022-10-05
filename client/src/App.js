@@ -6,6 +6,8 @@ import {
 import Home from './views/Home';
 import Register from './views/Register';
 import Login from './views/Login';
+import ListUsers from "./views/ListUsers"
+import { useState, useEffect } from "react";
 
 function App() {
 
@@ -22,6 +24,10 @@ function App() {
       path: "/register",
       element: <Register />,
     },
+    {
+      path: "/users",
+      element: <ListUsers />
+    }
   ]);
 
 

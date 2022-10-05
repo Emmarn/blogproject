@@ -4,8 +4,8 @@ import User from '../models/User.js';
 import jwt from "jsonwebtoken";
 
 
-export async function register(req, res) {
 
+export async function register(req, res) {
 
     //kolla om användare finns
     const query = "SELECT * FROM users WHERE username = $1::TEXT OR email = $2::TEXT";
@@ -14,8 +14,6 @@ export async function register(req, res) {
 
 
     let alreadyUser = await db.query(query, values);
-
-
 
     if (alreadyUser.rows.length) {
         return res.status(500).json("Användaren finns redan")
@@ -62,36 +60,100 @@ export async function register(req, res) {
 
 export async function login(req, res) {
 
-    const query = "SELECT * FROM users WHERE username = $1::TEXT";
-    const values = [req.body.username];
+    console.log(req, "==========================")
+    const q = "SELECT * FROM users WHERE username = $1::TEXT";
+    db.query(q, [req.username], (err, data) => {
+        console.log(data.rows, " this is data .-")
 
-    let findUser = (await db.query(query, values)).rows[0];
-    const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
+        let isPasswordCorrect;
 
-    if (!findUser)
-        return res.status(404).json("Användaren finns inte");
+        // if (err) return json(err);
+        if (!req) {
+            //     return err.status(404).json("User not found!")
+            // } else {
+            console.log("No user found")
 
-    if (!checkPassword)
-        return res.status(400).json("Fel användarnamn eller lösenord")
+        } else {
+            isPasswordCorrect = bcrypt.compareSync(
+                req.password,
+                data.rows[0].password
+            );
+        }
+
+        if (!isPasswordCorrect)
+            console.log("Wrong username or password!");
+
+        const token = jwt.sign({ id: data.rows[0].id }, "testSecret");
+
+        console.log(token, " token")
+
+        return token
+    })
 
 
-    let userId = findUser.id;
-    const token = jwt.sign({ id: userId }, "Sapppersecret");
-
-    const { password, ...otherData } = findUser
 
 
-    return res
-        .cookie('access_token', token)
-        .json({
-            username: otherData.username,
-            isAdmin: otherData.isAdmin,
-            token
-        })
+
+
+
+
+    // const query = "SELECT * FROM users WHERE username = $1::TEXT";
+    // const values = [req.body.username];
+
+    // let findUser = (await db.query(query, values)).rows[0];
+
+
+    // if (!findUser)
+    //     return res.status(404).json("Användaren finns inte");
+
+
+    // const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
+    // if (!checkPassword)
+    //     return res.status(400).json("Fel användarnamn eller lösenord");
+
+    // const token = generateAccessToken(findUser)
+
+    // // let userId = findUser.id;
+    // // const token = jwt.sign(userId, "Sapppersecret");
+
+
+
+    // res
+    //     .cookie("accessToken", token)
+    //     .json({ accessToken: token })
+
+}
+
+// export function authenticateToken(req, res, next) {
+
+//     console.log("<------------------------")
+//     const authHeader = req.headers['authorization']
+//     const token = authHeader && authHeader.split(' ')[1]
+
+//     if (token == null) return res.sendStatus(401)
+
+//     jwt.verify(token, "Sapppersecret", (err, user) => {
+//         if (err) return res.sendStatus(403)
+//         req.user = user;
+
+//         next();
+//     })
+// }
+
+const generateAccessToken = (user) => {
+    return jwt.sign({ id: user.id }, "mySecretKey", {
+        expiresIn: "2h",
+    });
+};
+
+export async function verifyToken(token) {
+    let resToken = jwt.verify(token, "testSecret")
+    console.log(resToken, " this is re stoke")
+    return resToken
 
 }
 
 
 export const logout = (req, res) => {
-    res.json("auth controlled")
+    res.clearCookie("accessToken").status(200).json("fuck offf asshole!")
 }
