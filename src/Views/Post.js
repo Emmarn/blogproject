@@ -3,10 +3,9 @@ import styles from './Post.css';
 
 
 export const Post = () => {
-        return (
-                <>
-                 
-                 <div className='post'>Posts</div>
-                </>
-        );
+    return (
+        <>          
+         <div className='post'>Posts</div>
+        </>
+  );
 };

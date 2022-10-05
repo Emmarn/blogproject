@@ -8,7 +8,7 @@ export const Blogpost = () => {
         window.scrollTo(0,0);
       }, []);
   
-//  Sidan där hela inlägget dyker upp
+//  Sidan där hela inlägget dyker upp när man tryckt på "läs mer". Här ska också läggas till CRUD för när man är inloggad.
  
  return (   
     <> 
