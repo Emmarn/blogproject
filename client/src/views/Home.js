@@ -11,6 +11,19 @@ const Home = () => {
 
     const { currentUser, login } = useContext(AuthContext);
 
+    const [blogPosts, setBlogPosts] = useState();
+
+
+    const blogs = async () => {
+        let res = await fetch("http://localhost:8000/api/blogs/all")
+            .then(res => res.json())
+            .then(data => console.log(data, " this is data"))
+        return res;
+    }
+
+
+    console.log(blogs, " blogposts")
+
     const getLocalStorage = localStorage.getItem('jwt');
     console.log(getLocalStorage, " <-----------------")
     const navigate = useNavigate();

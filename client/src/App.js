@@ -9,6 +9,7 @@ import Login from './views/Login';
 import ListUsers from "./views/ListUsers"
 import Blog from "./views/Blog";
 import { useState, useEffect } from "react";
+import { Addpost } from "./views/Addpost";
 
 function App() {
 
@@ -32,6 +33,10 @@ function App() {
     {
       path: "/blogs",
       element: <Blog />
+    },
+    {
+      path: "/addpost",
+      element: <Addpost />
     }
   ]);
 

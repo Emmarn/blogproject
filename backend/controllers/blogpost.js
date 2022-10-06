@@ -8,24 +8,26 @@ import Blog from '../models/Blog.js'
 
 
 
-export async function createPost(title, tag, ingress, text) {
-    let content = request.body.content;
+export async function createPost(req, res) {
+    let content = req.body.content;
 
-    let blog = new Blog(content);
+    //let blog = new Blog(content);
+
+    console.log(req.body)
 
     const query =
-        'INSERT INTO blog VALUES ($1::TEXT, $2::TEXT, $3::TEXT, $4::TEXT)';
+        'INSERT INTO blog (title, ingress, content, user_id) VALUES ($1::TEXT, $2::TEXT, $3::TEXT, $4::INT)';
+
 
     const values = [
-        blog.title,
-        blog.tag,
-        blog.ingress,
-        blog.content,
-        blog.createdDate
+        req.body.title,
+        req.body.ingress,
+        req.body.content,
+        req.body.user_id
     ];
-    let res = await db.query(query, values);
+    let result = await db.query(query, values);
 
-    response.json(blog);
+    res.json("blog");
 
 }
 

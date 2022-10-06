@@ -7,6 +7,6 @@ const router = express.Router();
 //router.use(createTable)
 
 router.get("/all", getAllPosts)
-router.post("/create", createPost)
+router.post("/test", createPost)
 
 export default router;

@@ -18,7 +18,7 @@ createTable();
 
 app.use("/api/users", userRoute)
 app.use("/api/auth", authRoute)
-app.use("/api/blogs", blogRoute)
+app.use("/api/blog", blogRoute)
 
 
 
