@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Sidebar.css';
-import { slide as Menu } from 'react-burger-menu';
+import { slide as Menu } from 'react-burger-menu';  //npm i react-burger-menu 
 import { Link } from "react-router-dom";
 
 
