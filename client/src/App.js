@@ -7,6 +7,7 @@ import Home from './views/Home';
 import Register from './views/Register';
 import Login from './views/Login';
 import ListUsers from "./views/ListUsers"
+import Blog from "./views/Blog";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
     {
       path: "/users",
       element: <ListUsers />
+    },
+    {
+      path: "/blogs",
+      element: <Blog />
     }
   ]);
 

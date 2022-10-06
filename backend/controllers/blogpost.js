@@ -5,10 +5,10 @@ import Blog from '../models/Blog.js'
 //Create blogpos,
 //delete blogpost,
 //edit blogpost,
-db.query(
-    "CREATE TABLE IF NOT EXISTS blogs (blog_id SERIAL PRIMARY KEY, title text, tag text, ingress text, content text, createdDate daate);");
 
-async function createPost(title, tag, ingress, text) {
+
+
+export async function createPost(title, tag, ingress, text) {
     let content = request.body.content;
 
     let blog = new Blog(content);
@@ -54,24 +54,28 @@ async function getUserPosts(request, response) {
 
 }
 
-async function getAllPosts(req, response) {
-    const query = 'SELECT * FROM blog;';
-    let res = await db.query(query);
-    response.json(res.rows.map(Blog.convert));
+export async function getAllPosts(req, res) {
+    console.log("we get in??")
+    const query = "SELECT * FROM blog;"
+
+    db.query(query, (err, data) => {
+        if (err) return res.status(401).json("There was an error")
+        res.status(200).json(data.rows)
+    })
 }
 
 
 
-pool.connect((err) => {
-    if (err) console.log(err);
-    else {
-        user(pool);
-        post(pool);
-        join(pool);
-        getBlogs(pool);
-        // get(pool);
-    }
-});
+// pool.connect((err) => {
+//     if (err) console.log(err);
+//     else {
+//         user(pool);
+//         post(pool);
+//         join(pool);
+//         getBlogs(pool);
+//         // get(pool);
+//     }
+// });
 
 // GRANT SELECT ON blog TO PUBLIC;
 // GRANT SELECT, UPDATE, INSERT, DELETE ON blog TO id = $1::INT;

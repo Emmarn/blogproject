@@ -8,13 +8,9 @@ export const AuthContext = createContext();
 
 export const AuthContexProvider = ({ children }) => {
 
-    let getLocalStorage = localStorage.getItem("jwt")
-
-
+    //let getLocalStorage = localStorage.getItem("jwt")
 
     const [currentUser, setCurrentUser] = useState();
-
-
 
     const login = async (user) => {
 
@@ -40,14 +36,10 @@ export const AuthContexProvider = ({ children }) => {
 
     };
 
-
-
-
-
     const logout = async () => {
 
     }
-    console.log(currentUser, " current user")
+
 
     return (
         <AuthContext.Provider value={{ currentUser, setCurrentUser, login, logout }}>

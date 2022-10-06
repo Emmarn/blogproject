@@ -1,21 +1,23 @@
 import express from "express";
 import userRoute from "../backend/routes/users.js";
 import authRoute from "../backend/routes/auth.js";
+import blogRoute from "../backend/routes/blogposts.js"
 import cors from 'cors';
-import bodyParser from "body-parser";
+import createTable from './createTables.js'
 
 const app = express();
 
 app.use(cors())
 
 app.use(express.json());
-
+//app.use(createTable());
 
 
 
 
 app.use("/api/users", userRoute)
 app.use("/api/auth", authRoute)
+app.use("/api/blogs", blogRoute)
 
 
 

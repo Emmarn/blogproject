@@ -32,16 +32,14 @@ const Login = () => {
             username: userCredentials.username,
             password: userCredentials.password
         }
-        let currUser;
+
 
         // add then som veriferar jwt och tar och sätter användaren som currentuser i context.
         login(data)
             .then((res) => {
                 localStorage.setItem("jwt", res.token);
-                currUser = res.user;
-                console.log(currUser, " this is currUser")
                 setCurrentUser(res.user);
-                console.log(currentUser)
+                navigate("/")
             })
     };
 

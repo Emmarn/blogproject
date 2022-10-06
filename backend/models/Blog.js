@@ -1,4 +1,4 @@
-class Blog {
+export default class Blog {
     constructor(title, tag, ingress, post) {
         this.title = title;
         this.tag = tag;
