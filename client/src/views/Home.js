@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context';
 import ReadMoreBtn from '../components/ReadMoreBtn';
 import { Header } from '../components/Header';
+import styles from '../css/Home.css';
+
 
 
 const Home = () => {
@@ -13,6 +15,8 @@ const Home = () => {
     console.log(getLocalStorage, " <-----------------")
     const navigate = useNavigate();
 
+    //if (getLocalStorage) 
+
     const handleNav = () => {
         navigate("/login")
     }
@@ -20,6 +24,7 @@ const Home = () => {
     return (
         <>
             <Header />
+            {currentUser && <div>Hei {currentUser.username}</div>}
             <div className="posts-container">
                 <img id='author-img' src="https://images.photowall.com/products/65869/bunny-rabbit.jpg?h=699" alt='bunny'></img>
                 <h2 id="title">Inlägg</h2>

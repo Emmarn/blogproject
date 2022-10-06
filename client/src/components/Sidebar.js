@@ -11,8 +11,8 @@ const Sidebar = () => {
         Hem
       </a>
 
-      <a className="menu-item" href="./Bloggers.js">
-        Våra bloggare
+      <a className="menu-item" href="./register">
+        Regristrera användare
       </a>
 
       <Link to={'/login'}>Logga in</Link>

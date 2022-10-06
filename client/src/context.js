@@ -12,6 +12,8 @@ export const AuthContexProvider = ({ children }) => {
 
     const [currentUser, setCurrentUser] = useState();
 
+    console.log(currentUser, " When is this not empty")
+
     const login = async (user) => {
 
         const url = "http://localhost:8000/api/auth/login";

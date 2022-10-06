@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context';
+import { Link } from "react-router-dom";
+import styles from "../css/Login.css";
 
 const Login = () => {
 
@@ -12,6 +14,9 @@ const Login = () => {
             password: ""
         }
     )
+
+    const [errorMessages, setErrorMessages] = useState({});
+    const [isSubmitted, setIsSubmitted] = useState(false);
     //const [user, setUser] = useState({});
     //const [serverResponse, setServerResponse] = useState('');
 
@@ -21,7 +26,7 @@ const Login = () => {
 
     const handleUserInputs = (e) => {
 
-        console.log(e.target.name, " <-------------")
+        console.log(e.target.value, " <-------------")
         setUserCredentials(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
@@ -32,29 +37,57 @@ const Login = () => {
             username: userCredentials.username,
             password: userCredentials.password
         }
-
-
         // add then som veriferar jwt och tar och sätter användaren som currentuser i context.
         login(data)
             .then((res) => {
                 localStorage.setItem("jwt", res.token);
                 setCurrentUser(res.user);
+                console.log(currentUser, " current user")
                 navigate("/")
             })
     };
 
+    const renderErrorMessage = (name) =>
+        name === errorMessages.name && (
+            <div className="error">{errorMessages.message}</div>
+        );
+
+
+
+    const renderForm = (
+        <div className="render-form">
+            <form onSubmit={handleSubmit}>
+                <div className="input-container">
+                    <label>Användarnamn</label>
+                    <input type="text" name="username" onChange={handleUserInputs} />
+                    {renderErrorMessage("uname")}
+                </div>
+                <div className="input-container">
+                    <label>Lösenord</label>
+                    <input type="password" name="password" required onChange={handleUserInputs} />
+                    {renderErrorMessage("pass")}
+                </div>
+                <div className="button-container">
+                    <input type="submit" />
+                </div>
+            </form>
+        </div>
+    );
 
     return (
-        <div>
-            <form>
-                <input type="text" placeholder='username' name='username' onChange={handleUserInputs} />
-                <input type="text" placeholder='password' name='password' onChange={handleUserInputs} />
-                <button onClick={handleSubmit}>Click please</button>
 
-            </form>
-
+        <div className="form">
+            <div className="login-form">
+                <div className="title">Logga in som member</div>
+                {isSubmitted ? <div >
+                    <div >Användaren är inloggad</div>
+                    <Link className="entry-message" to={'/addpostform'}>OK</Link>
+                </div> : renderForm}
+            </div>
         </div>
-    )
-}
+    );
+};
+
+
 
 export default Login

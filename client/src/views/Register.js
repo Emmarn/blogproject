@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
+
+    const navigate = useNavigate();
 
     const url = "http://localhost:8000/api/auth/register"
 
@@ -39,11 +42,13 @@ const Register = () => {
             .then((response) => response.json())
             .then((data) => {
                 console.log('Server response:', data);
+                navigate("/")
 
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
+
     }
 
     return (
@@ -60,3 +65,4 @@ const Register = () => {
 }
 
 export default Register;
+
