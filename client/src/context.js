@@ -1,6 +1,9 @@
 import { createContext, useState } from "react";
 
 
+
+
+
 export const AuthContext = createContext();
 
 export const AuthContexProvider = ({ children }) => {
@@ -13,100 +16,33 @@ export const AuthContexProvider = ({ children }) => {
 
 
 
-    const login = async (username, password) => {
+    const login = async (user) => {
 
-        const url = 'http://localhost:8000/api/auth/';
+        const url = "http://localhost:8000/api/auth/login";
 
-        const loginUser = async (username, password) => {
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: user.username, password: user.password }),
+        });
 
-            await fetch(url + "login", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: username, password: password }),
+        // let userToken = jwt.verify(response, "SikretKej")        
 
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data, " we never get hrere=");
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+        // //get user fom id och sätta till current user.
 
-        }
-        const verifyUser = async () => {
 
-            await fetch(url + "verify", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ localStorage: getLocalStorage }),
+        // console.log(userFromDb, " this is user returned to context ")
 
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setCurrentUser(data);
+        return response.json();
 
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
 
-        }
-        loginUser(username, password).then(console.log(localStorage.getItem("jwt")))
+    };
 
-        console.log(currentUser, "vvvv")
 
-        // console.log("Now we are here -<-<--")
 
-        // if (!getLocalStorage) {
-        //     console.log("Now we are here -<-<-- 2 2 2 2")
-        //     let getJwtToken = await fetch(url + "login", {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({ username: username, password: password }),
 
-        //     })
-        //         .then((response) => response.json())
-        //         .then((data) => {
-        //             localStorage.setItem("jwt", data);
-
-        //         })
-        //         .catch((error) => {
-        //             console.error('Error:', error);
-        //         });
-
-        //     console.log(getJwtToken, " do we get rtoken?")
-        // }
-
-        // console.log(getLocalStorage, " This is ls")
-
-        // let response = await fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ localStorage: getLocalStorage }),
-
-        // })
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         setCurrentUser(setCurrentUser(data));
-
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
-
-        // console.log(response, "ress")
-
-        // console.log(currentUser, " curr user")
-    }
 
     const logout = async () => {
 
@@ -114,7 +50,7 @@ export const AuthContexProvider = ({ children }) => {
     console.log(currentUser, " current user")
 
     return (
-        <AuthContext.Provider value={{ currentUser, login, logout }}>
+        <AuthContext.Provider value={{ currentUser, setCurrentUser, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

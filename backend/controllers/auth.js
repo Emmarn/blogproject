@@ -29,23 +29,6 @@ export async function register(req, res) {
     let response = await db.query(addUserQuery, [newUser.username, newUser.email, newUser.password]);
 
     res.json(newUser)
-    // let resQ = await db.query(query, [req.body.email, req.body.username], (err, data) => {
-    //     if (err) return res.json(err)
-    //     if (data.length) return res.status(409).json("Användare redan regristerad");
-
-    // let user = new User(req.body.username, req.body.email, req.body.password)
-
-
-
-    // const query = "INSERT INTO users(username, password, email) VALUES ($1::TEXT, $2::TEXT, $3::TEXT)";
-
-    // let values = [user.username, hash, user.email, user.createDate, user.lastLoggedIn]
-
-    // db.query(query, values, (err, data) => {
-    //     if (err) return res.json(err)
-    //     return res.status(200).json("Användare har regristrerats")
-    // })
-
 
 
 }
@@ -57,72 +40,44 @@ export async function register(req, res) {
 
 
 
+//fångar fel, loggar in sätter jwt i localstorage. 
+export function login(req, res) {
 
-export async function login(req, res) {
 
-    console.log(req, "==========================")
+    console.log(req.body, " this shoudl be username nad password")
+
     const q = "SELECT * FROM users WHERE username = $1::TEXT";
-    db.query(q, [req.username], (err, data) => {
-        console.log(data.rows, " this is data .-")
 
-        let isPasswordCorrect;
+    db.query(q, [req.body.username], (err, data) => {
+        if (err) res.status(500).json(err);
 
-        // if (err) return json(err);
-        if (!req) {
-            //     return err.status(404).json("User not found!")
-            // } else {
-            console.log("No user found")
-
-        } else {
-            isPasswordCorrect = bcrypt.compareSync(
-                req.password,
-                data.rows[0].password
-            );
+        if (data.rows.length < 1) {
+            return res.status(404).json("User not found!");
         }
 
+
+        //Check password
+
+        const isPasswordCorrect = bcrypt.compareSync(
+            req.body.password,
+            data.rows[0].password
+        );
+
         if (!isPasswordCorrect)
-            console.log("Wrong username or password!");
+            return res.status(400).json("Wrong username or password!");
 
-        const token = jwt.sign({ id: data.rows[0].id }, "testSecret");
+        const token = jwt.sign({ id: data.rows[0].id }, "SikretKej");
 
-        console.log(token, " token")
+        const { password, ...other } = data.rows[0];
 
-        return token
+
+        return res
+            .status(200)
+            .json({ token: token, user: other });
     })
 
-
-
-
-
-
-
-
-    // const query = "SELECT * FROM users WHERE username = $1::TEXT";
-    // const values = [req.body.username];
-
-    // let findUser = (await db.query(query, values)).rows[0];
-
-
-    // if (!findUser)
-    //     return res.status(404).json("Användaren finns inte");
-
-
-    // const checkPassword = bcrypt.compareSync(req.body.password, findUser.password);
-    // if (!checkPassword)
-    //     return res.status(400).json("Fel användarnamn eller lösenord");
-
-    // const token = generateAccessToken(findUser)
-
-    // // let userId = findUser.id;
-    // // const token = jwt.sign(userId, "Sapppersecret");
-
-
-
-    // res
-    //     .cookie("accessToken", token)
-    //     .json({ accessToken: token })
-
 }
+
 
 // export function authenticateToken(req, res, next) {
 

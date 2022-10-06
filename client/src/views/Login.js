@@ -17,7 +17,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const { currentUser, login } = useContext(AuthContext);
+    const { login, setCurrentUser, currentUser } = useContext(AuthContext);
 
     const handleUserInputs = (e) => {
 
@@ -32,8 +32,17 @@ const Login = () => {
             username: userCredentials.username,
             password: userCredentials.password
         }
+        let currUser;
 
-        login(data.username, data.password)
+        // add then som veriferar jwt och tar och sätter användaren som currentuser i context.
+        login(data)
+            .then((res) => {
+                localStorage.setItem("jwt", res.token);
+                currUser = res.user;
+                console.log(currUser, " this is currUser")
+                setCurrentUser(res.user);
+                console.log(currentUser)
+            })
     };
 
 

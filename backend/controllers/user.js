@@ -1,5 +1,6 @@
 import db from '../db.js'
 import User from '../models/User.js'
+import jwt from 'jsonwebtoken'
 
 db.query("CREATE TABLE IF NOT EXISTS users (user_id SERIAL PRIMARY KEY, username text, email text, password text, createDate date, lastLoggedIn date);");
 
@@ -20,10 +21,18 @@ export async function listUsers(req, res,) {
 
 
 
-async function getUsers(req, response) {
-    const query = 'SELECT * FROM users;';
-    let res = await db.pool.query(query);
-    response.json(res.rows.map(User.convert));
+export async function getUsers(req, res) {
+    const query = 'SELECT * FROM users WHERE id = $1::INT';
+    let user = await db.query(query, [req.body.id]);
+    if (res) res.json(user)
+}
+
+export async function getUserByJwt(req, res) {
+    let decodedJwt = jwt.verify(req.body, "SikretKej");
+    console.log(decodedJwt.id, " decoded jwt id?")
+    const query = 'SELECT * FROM users WHERE id = $1::INT';
+    let user = await db.query(query, [decodedJwt.id])
+    res.json(user)
 }
 
 // GRANT SELECT ON users TO PUBLIC;
